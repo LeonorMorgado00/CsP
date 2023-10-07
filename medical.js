@@ -635,20 +635,52 @@ function main(){
                         //VER LOCAL ESCOLHIDO
                         if(placesForConsultas[indexF]["Nome do novo local"] == selecedLocal){
                             elementF = p[indexF];
-                            allElementsForPlace.push(indexF)
+                            allElementsForPlace.push(elementF)
                             
                             nomeDoLocal = placesForConsultas[indexF]["Nome do novo local"]
-                            numeroDeZonas = placesForConsultas[indexF]["Número de zonas existentes no local"] 
-                            nomeDaZona = placesForConsultas[indexF]["Nome da zona"]   
-                            justificacoesDaZona = placesForConsultas[indexF]["Justificações a considerar (separar com vírgula)"]          
-                            nomeDaZona2 = placesForConsultas[indexF]["Nome da zona 2"]   
-                            justificacoesDaZona2 = placesForConsultas[indexF]["Justificações a considerar 2 (separar com vírgula)"]    
-                            nomeDaZona3 = placesForConsultas[indexF]["Nome da zona 3"]   
-                            justificacoesDaZona3 = placesForConsultas[indexF]["Justificações a considerar 3 (separar com vírgula)"]          
-                            nomeDaZona4 = placesForConsultas[indexF]["Nome da zona 4"]   
-                            justificacoesDaZona4 = placesForConsultas[indexF]["Justificações a considerar 4 (separar com vírgula)"]    
-                            nomeDaZona5 = placesForConsultas[indexF]["Nome da zona 5"]   
-                            justificacoesDaZona5 = placesForConsultas[indexF]["Justificações a considerar 5 (separar com vírgula)"]
+                            numeroDeZonas = placesForConsultas[indexF]["Número de zonas existentes no local"]
+                            if(numeroDeZonas == 1){
+                                nomeDaZona = placesForConsultas[indexF]["(1) Nome da zona"]   
+                                justificacoesDaZona = placesForConsultas[indexF]["(1) Justificações a considerar (separar com vírgula)"]
+                            } else if(numeroDeZonas == 2){
+                                nomeDaZona = placesForConsultas[indexF]["(2) Nome da zona"]   
+                                justificacoesDaZona = placesForConsultas[indexF]["(2) Justificações a considerar (separar com vírgula)"]
+                                nomeDaZona2 = placesForConsultas[indexF]["(2) Nome da zona 2"]   
+                                justificacoesDaZona2 = placesForConsultas[indexF]["(2) Justificações a considerar 2 (separar com vírgula)"]
+                            } else if(numeroDeZonas == 3){
+                                nomeDaZona = placesForConsultas[indexF]["(3) Nome da zona"]   
+                                justificacoesDaZona = placesForConsultas[indexF]["(3) Justificações a considerar (separar com vírgula)"]
+                                nomeDaZona2 = placesForConsultas[indexF]["(3) Nome da zona 2"]   
+                                justificacoesDaZona2 = placesForConsultas[indexF]["(3) Justificações a considerar 2 (separar com vírgula)"]
+                                nomeDaZona3 = placesForConsultas[indexF]["(3) Nome da zona 3"]   
+                                justificacoesDaZona3 = placesForConsultas[indexF]["(3) Justificações a considerar 3 (separar com vírgula)"]  
+                            } else if(numeroDeZonas == 4){
+                                nomeDaZona = placesForConsultas[indexF]["(4) Nome da zona"]   
+                                justificacoesDaZona = placesForConsultas[indexF]["(4) Justificações a considerar (separar com vírgula)"]
+                                nomeDaZona2 = placesForConsultas[indexF]["(4) Nome da zona 2"]   
+                                justificacoesDaZona2 = placesForConsultas[indexF]["(4) Justificações a considerar 2 (separar com vírgula)"]
+                                nomeDaZona3 = placesForConsultas[indexF]["(4) Nome da zona 3"]   
+                                justificacoesDaZona3 = placesForConsultas[indexF]["(4) Justificações a considerar 3 (separar com vírgula)"]  
+                                nomeDaZona4 = placesForConsultas[indexF]["(4) Nome da zona 4"]   
+                                justificacoesDaZona4 = placesForConsultas[indexF]["(4) Justificações a considerar 4 (separar com vírgula)"]  
+                            } else if(numeroDeZonas == 5){
+                                nomeDaZona = placesForConsultas[indexF]["(5) Nome da zona"]   
+                                justificacoesDaZona = placesForConsultas[indexF]["(5) Justificações a considerar (separar com vírgula)"]
+                                nomeDaZona2 = placesForConsultas[indexF]["(5) Nome da zona 2"]   
+                                justificacoesDaZona2 = placesForConsultas[indexF]["(5) Justificações a considerar 2 (separar com vírgula)"]
+                                nomeDaZona3 = placesForConsultas[indexF]["(5) Nome da zona 3"]   
+                                justificacoesDaZona3 = placesForConsultas[indexF]["(5) Justificações a considerar 3 (separar com vírgula)"] 
+                                nomeDaZona4 = placesForConsultas[indexF]["(5) Nome da zona 4"]   
+                                justificacoesDaZona4 = placesForConsultas[indexF]["(5) Justificações a considerar 4 (separar com vírgula)"]   
+                                nomeDaZona5 = placesForConsultas[indexF]["(5) Nome da zona 5"]   
+                                justificacoesDaZona5 = placesForConsultas[indexF]["(5) Justificações a considerar 5 (separar com vírgula)"]
+                            } 
+
+                                      
+                                
+                                    
+                              
+                            
                         }
                     }
                 }
@@ -3290,11 +3322,13 @@ function main(){
             else{
                 //desenhar a nova vis
                 //COM BASE NO NUMERO DE ZONAS, DIVIDIR A VISUALIZACAO
-                if(numeroDeZonas == 1){  
+                if(numeroDeZonas == 1){ 
                     drawZone(corZona1, 'zona1', 720, 150, 540, 250, "")
                 } else if (numeroDeZonas == 2){
-                    drawZone(corZona1, 'zona1', 720, 150, 270, 250, "")
-                    drawZone(corZona2, 'zona2', 990, 150, 270, 250, "")
+                    console.log('ENTROU') 
+                    console.log('nomeDaZona: ' + nomeDaZona)
+                    drawZone(corZona1, 'zona1', 720, 150, 270, 250, "", nomeDaZona)
+                    drawZone(corZona2, 'zona2', 990, 150, 270, 250, "", nomeDaZona2)
                 } else if (numeroDeZonas == 3){
                     drawZone(corZona1, 'zona1', 720, 150, 180, 250, "")
                     drawZone(corZona2, 'zona2', 900, 150, 180, 250, "")
@@ -3318,7 +3352,9 @@ function main(){
 
         }
 
-        function drawZone(colorToUse, idToUse, xToUse, yToUse, widthToUse, heightToUse, justificationToUse){     
+        function drawZone(colorToUse, idToUse, xToUse, yToUse, widthToUse, heightToUse, justificationToUse, nameToUse){     
+            if(nameToUse == null) nameToUse = ""
+            console.log(nameToUse)
             svg.append('rect')
             .attr('id', idToUse)
             .attr('x', xToUse)
@@ -3339,7 +3375,7 @@ function main(){
                     .style("left", a + "px")     
                     .style("top", b + "px")
                     .style("width", 250 + "px")
-                    .text(idToUse + "Justificação: " + justificationToUse)
+                    .text(idToUse + " " + nameToUse + "Justificação: " + justificationToUse)
                     .style("color", "#6E9EA4")
                     .style("font-family", "Roboto")
                     .style("font-size", '14px')
@@ -3356,7 +3392,7 @@ function main(){
                     .style("left", a + "px")     
                     .style("top", c + "px")
                     .style("width", 300 + "px")
-                    .text(idToUse + ": " + justificationToUse)
+                    .text(idToUse + ": " +  nameToUse + " " + justificationToUse)
                     .style("color", "#6E9EA4")
                     .style("font-family", "Roboto")
                     .style("font-size", '14px')
@@ -4954,6 +4990,8 @@ function main(){
         
                 //DESENHAR MAPA
                 if(numeroDeZonas == 1){  
+                    console.log('ENTROU2') 
+                    console.log('nomeDaZona: ' + nomeDaZona)
                     drawZone(corZona1, 'zona1', 720, 150, 540, 250, "")
                 } else if (numeroDeZonas == 2){
                     drawZone(corZona1, 'zona1', 720, 150, 270, 250, "")
@@ -4984,6 +5022,8 @@ function main(){
                 if(client.classed("selected")){
                     //DESENHAR MAPA
                     if(numeroDeZonas == 1){  
+                        console.log('ENTROU3') 
+                    console.log('nomeDaZona: ' + nomeDaZona)
                         drawZone(corUserZona1, 'zona1', 720, 150, 540, 250, justificationUserZona1)
                     } else if (numeroDeZonas == 2){
                         drawZone(corUserZona1, 'zona1', 720, 150, 270, 250, justificationUserZona1)
@@ -5049,6 +5089,8 @@ function main(){
         
                 //DESENHAR MAPA
                 if(numeroDeZonas == 1){  
+                    console.log('ENTROU4') 
+                    console.log('nomeDaZona: ' + nomeDaZona)
                     drawZone(corVisitaZona1, 'zona1', 720, 150, 540, 250, "")
                 } else if (numeroDeZonas == 2){
                     drawZone(corVisitaZona1, 'zona1', 720, 150, 270, 250, "")
@@ -5099,6 +5141,8 @@ function main(){
                 if(client.classed("selected")){
                     //DESENHAR MAPA
                     if(numeroDeZonas == 1){  
+                        console.log('ENTROU5') 
+                    console.log('nomeDaZona: ' + nomeDaZona)
                         drawZone(corUserVisitaZona1, 'zona1', 720, 150, 540, 250, "")
                     } else if (numeroDeZonas == 2){
                         drawZone(corUserVisitaZona1, 'zona1', 720, 150, 270, 250, "")
@@ -5162,6 +5206,8 @@ function main(){
         
                 //DESENHAR MAPA
                 if(numeroDeZonas == 1){  
+                    console.log('ENTROU6') 
+                    console.log('nomeDaZona: ' + nomeDaZona)
                     drawZone(corFutureZona1, 'zona1', 720, 150, 540, 250, "")
                 } else if (numeroDeZonas == 2){
                     drawZone(corFutureZona1, 'zona1', 720, 150, 270, 250, "")
@@ -5212,6 +5258,8 @@ function main(){
                             
                     //DESENHAR MAPA
                     if(numeroDeZonas == 1){  
+                        console.log('ENTROU7') 
+                    console.log('nomeDaZona: ' + nomeDaZona)
                         drawZone(corUserFutureZona1, 'zona1', 720, 150, 540, 250, "")
                     } else if (numeroDeZonas == 2){
                         drawZone(corUserFutureZona1, 'zona1', 720, 150, 270, 250, "")
