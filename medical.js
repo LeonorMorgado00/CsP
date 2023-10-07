@@ -61,20 +61,6 @@ function main(){
     var ratingsZona5 = []
 
 
-    var futures = []
-    var visits = []
-    var visitsZona1= []
-    var visitsZona2= []
-    var visitsZona3= []
-    var visitsZona4= []
-    var visitsZona5= []
-    
-    var justificationsZona1 = []
-    var justificationsZona2 = []
-    var justificationsZona3 = []
-    var justificationsZona4 = []
-    var justificationsZona5 = []
-
     var ratingUserZona1 = 0
     var ratingUserZona2 = 0
     var ratingUserZona3 = 0
@@ -98,6 +84,13 @@ function main(){
     var countFutureUserZona3 = 0
     var countFutureUserZona4 = 0
     var countFutureUserZona5 = 0
+
+    //CORES INICIAIS
+    var corZona1 = 'white'
+    var corZona2 = 'white'
+    var corZona3 = 'white'
+    var corZona4 = 'white'
+    var corZona5 = 'white'
 
     var elementsFromExcel = [];
 
@@ -760,7 +753,7 @@ function main(){
                                     if(ids[indexes[index1]] != ids[indexes[index]]){
                                         var teste = 'userc' + ids[indexes[index1]]
                                         var testee = d3.select("#" + teste)
-                                
+
                                         testee.classed("selected", false)
                                             .style('fill', "#6E9EA4")
                                     } 
@@ -1787,12 +1780,7 @@ function main(){
             
     
 
-    //CORES INICIAIS
-    var corZona1 = 'white'
-    var corZona2 = 'white'
-    var corZona3 = 'white'
-    var corZona4 = 'white'
-    var corZona5 = 'white'
+ 
 
         
 
@@ -2678,7 +2666,6 @@ function main(){
             }
             else{
                 if(futures[0].includes('1')){
-                    console.log('aqui')
                     countFutureZona1 = 1;
                 } else countFutureZona1 = 0;
                 if(futures[0].includes('Zona 2')){
@@ -2699,7 +2686,6 @@ function main(){
             //CORES PARA FUTURO: CONSIDERAR APENAS A MAIS ESCURA E MAIS CLARA
 
             if(countFutureZona1 == 1){
-                console.log('aqui2')
                 corUserFutureZona1 = '#BF4E00FF';
             } else corUserFutureZona1 = '#FFE2BBFF';
             if(countFutureZona2 == 1){
@@ -2720,6 +2706,7 @@ function main(){
 
         var y1
         var yt
+        var firstTime = 0
         function drawUsers(){
             y1 = 580
             yt = 585
@@ -2739,6 +2726,7 @@ function main(){
                 .style("font-family", "Roboto")
                 .style("fill", "#0d4148")
 
+
                 svg.append('circle')
                     .attr("id", 'user' + id)
                     .attr('cx', 720)
@@ -2749,9 +2737,11 @@ function main(){
                     .classed("selected", false)
                     .on('click', function(e, d){
 
+
                     idOfClickedUser = ids[indexes[index]]
 
                     if (!d3.select(this).classed("selected") ){
+                        firstTime = 1
                         d3.select(this).classed("selected", true)
                         d3.select(this)
                         .style('fill', "#0d4148")
@@ -2819,7 +2809,9 @@ function main(){
                         //ROOMS VISITED
                         //AND GET THE JUSTIFICATIONS
 
+
                         if(visitsZona1[indexToGet] == 'Sim'){
+
                             visitUserZona1 = 1;
                             justificationUserZona1 = justificationsZona1[indexToGet]
                         } else{
@@ -2947,10 +2939,8 @@ function main(){
                         }
 
                         //CORES PARA FUTURO: CONSIDERAR APENAS A MAIS ESCURA E MAIS CLARA
-                        console.log('countFutureUserZona1: ' + countFutureUserZona1)
 
                         if(countFutureUserZona1 == 1){
-                            console.log('AAAAAAAAA')
                             corUserFutureZona1 = '#BF4E00FF';
                         } else corUserFutureZona1 = '#FFE2BBFF';
                         if(countFutureUserZona2 == 1){
@@ -3101,13 +3091,14 @@ function main(){
             determinePlaceToDraw()
         }    
         
+        var a
         
         function determinePlaceToDraw(){
             if(selecedLocal == 'MAAT'){
                 //MAPA INICIAL
                     //DESENHAR MAPA
                     //EXTERIOR
-                    svg.append('rect')
+                        svg.append('rect')
                         .attr("id", 'exterior')
                         .attr('x', 720)
                         .attr('y', 150)
@@ -3116,6 +3107,7 @@ function main(){
                         .style("fill", corZona1)
                         .style('stroke', "black")
                         .on('mouseover', function (d, i) {
+                            a = corZona1
                             a = parseInt(d3.select(this).attr('x')) + 320
                             b = parseInt(d3.select(this).attr('y')) + 60
                             d3.select('#tooltip')
@@ -3130,7 +3122,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                                    .attr('opacity', '.8');
+                            .style('fill', '#72839e')
                         })
                         .on('mouseout', function (d, i) {
                             d3.select('#tooltip')
@@ -3138,7 +3130,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .attr('opacity', '1');
+                            .style('fill', corZona1)
                         })
     
     
@@ -3184,7 +3176,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                                    .attr('opacity', '.8');
+                            .style('fill', '#72839e')
                         })
                         .on('mouseout', function (d, i) {
                             d3.select('#tooltip')
@@ -3192,7 +3184,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .attr('opacity', '1');
+                            .style('fill', corZona5)
                         })
     
                     innerSVG.append("path")
@@ -3216,7 +3208,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                                    .attr('opacity', '.8');
+                            .style('fill', '#72839e')
                         })
                         .on('mouseout', function (d, i) {
                             d3.select('#tooltip')
@@ -3224,7 +3216,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .attr('opacity', '1');
+                            .style('fill', corZona3)
                         })
     
                     innerSVG.append("path")
@@ -3248,7 +3240,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                                    .attr('opacity', '.8');
+                            .style('fill', '#72839e')
                         })
                         .on('mouseout', function (d, i) {
                             d3.select('#tooltip')
@@ -3256,7 +3248,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .attr('opacity', '1');
+                            .style('fill', corZona2)
                         })
     
                         
@@ -3282,7 +3274,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                                    .attr('opacity', '.8');
+                            .style('fill', '#72839e')
                         })
                         .on('mouseout', function (d, i) {
                             d3.select('#tooltip')
@@ -3290,7 +3282,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .attr('opacity', '1');
+                            .style('fill', corZona4)
                         })
     
                     innerSVG.raise()
@@ -3326,7 +3318,7 @@ function main(){
 
         }
 
-        function drawZone(colorToUse, idToUse, xToUse, yToUse, widthToUse, heightToUse, justificationToUse){       
+        function drawZone(colorToUse, idToUse, xToUse, yToUse, widthToUse, heightToUse, justificationToUse){     
             svg.append('rect')
             .attr('id', idToUse)
             .attr('x', xToUse)
@@ -3353,8 +3345,8 @@ function main(){
                     .style("font-size", '14px')
                     d3.select(this)
                     .transition()
+                    .style('fill', '#72839e')
                     .duration('50')
-                        .attr('opacity', '.8');
     
                 }
                 else{
@@ -3372,7 +3364,6 @@ function main(){
                     .transition()
                     .style('fill', '#6E9EA4')
                     .duration('50')
-                        .attr('opacity', '.8');
                 }
                     
             })
@@ -3382,6 +3373,7 @@ function main(){
                     .style('opacity', 0)
                     d3.select(this)
                     .transition()
+                    .style('fill', colorToUse)
                     .duration('50')
                     .attr('opacity', '1');
                 }
@@ -3559,8 +3551,8 @@ function main(){
                         .style("font-size", '14px')
                         d3.select(this)
                         .transition()
+                        .style('fill', '#72839e')
                         .duration('50')
-                            .attr('opacity', '.8');
                     })
                     .on('mouseout', function (d, i) {
                         d3.select('#tooltip')
@@ -3568,7 +3560,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .attr('opacity', '1');
+                        .style('fill', corZona1)
                     })
 
                     var innerSVG = svg.append('svg')
@@ -3613,7 +3605,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                                .attr('opacity', '.8');
+                        .style('fill', '#72839e')                    
                     })
                     .on('mouseout', function (d, i) {
                         d3.select('#tooltip')
@@ -3621,7 +3613,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .attr('opacity', '1');
+                        .style('fill', corZona5)
                     })
 
                 innerSVG.append("path")
@@ -3645,7 +3637,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                                .attr('opacity', '.8');
+                        .style('fill', '#72839e')
                     })
                     .on('mouseout', function (d, i) {
                         d3.select('#tooltip')
@@ -3653,7 +3645,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .attr('opacity', '1');
+                        .style('fill', corZona3)
                     })
 
                 innerSVG.append("path")
@@ -3677,7 +3669,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                                .attr('opacity', '.8');
+                        .style('fill', '#72839e')
                     })
                     .on('mouseout', function (d, i) {
                         d3.select('#tooltip')
@@ -3685,7 +3677,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .attr('opacity', '1');
+                        .style('fill', corZona2)
                     })
 
                 innerSVG.append("path")
@@ -3709,7 +3701,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                                .attr('opacity', '.8');
+                        .style('fill', '#72839e')
                     })
                     .on('mouseout', function (d, i) {
                         d3.select('#tooltip')
@@ -3717,17 +3709,17 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .attr('opacity', '1');
+                        .style('fill', corZona4)
                     })
 
                 innerSVG.raise()
 
-
-
                 var verificar = 'user' + idOfClickedUser
                 var client = d3.select("#" + verificar)
+
                     
-                if(client.classed("selected")){
+                if(client.classed("selected") || firstTime != 0){
+                    firstTime = 0
                     //DESENHAR MAPA
                     //EXTERIOR
                     svg.append('rect')
@@ -3747,7 +3739,7 @@ function main(){
                                 .transition().duration(200)
                                 .style('opacity', 1)
                                 .style("left", a + "px")     
-                                .style("top", b + "px")
+                                .style("top", c + "px")
                                 .style("width", 250 + "px")
                                 .text("Exterior do museu\n" + "Justificação: " + justificationUserZona1)
                                 .style("color", "#6E9EA4")
@@ -3756,7 +3748,7 @@ function main(){
                                 d3.select(this)
                                 .transition()
                                 .duration('50')
-                                    .attr('opacity', '.8');
+                                .style('fill', '#72839e')
 
                             }
                             else{
@@ -3774,7 +3766,7 @@ function main(){
                                 .transition()
                                 .style('fill', '#6E9EA4')
                                 .duration('50')
-                                    .attr('opacity', '.8');
+                                
                             }
                                 
                         })
@@ -3785,7 +3777,7 @@ function main(){
                                 d3.select(this)
                                 .transition()
                                 .duration('50')
-                                .attr('opacity', '1');
+                                .style('fill', corUserZona1)
                             }
                             else{
                                 d3.select('#tooltip')
@@ -3814,7 +3806,7 @@ function main(){
                                 .transition().duration(200)
                                 .style('opacity', 1)
                                 .style("left", a + "px")     
-                                .style("top", b + "px")
+                                .style("top", c + "px")
                                 .style("width", 250 + "px")
                                 .text("Galeria Principal\n" + "Justificação: " + justificationUserZona5)
                                 .style("color", "#6E9EA4")
@@ -3823,7 +3815,7 @@ function main(){
                                 d3.select(this)
                                 .transition()
                                 .duration('50')
-                                    .attr('opacity', '.8');
+                                .style('fill', '#72839e')
 
                             }
                             else{
@@ -3841,7 +3833,7 @@ function main(){
                                 .transition()
                                 .style('fill', '#6E9EA4')
                                 .duration('50')
-                                    .attr('opacity', '.8');
+                                
                             }
                                 
                         })
@@ -3852,7 +3844,8 @@ function main(){
                                 d3.select(this)
                                 .transition()
                                 .duration('50')
-                                .attr('opacity', '1');
+                                .attr('opacity', '1')
+                                .style('fill', corUserZona5)
                             }
                             else{
                                 d3.select('#tooltip')
@@ -3880,7 +3873,7 @@ function main(){
                                 .transition().duration(200)
                                 .style('opacity', 1)
                                 .style("left", a + "px")     
-                                .style("top", b + "px")
+                                .style("top", c + "px")
                                 .style("width", 250 + "px")
                                 .text("Video Room\n" + "Justificação: " + justificationUserZona3)
                                 .style("color", "#6E9EA4")
@@ -3889,7 +3882,7 @@ function main(){
                                 d3.select(this)
                                 .transition()
                                 .duration('50')
-                                    .attr('opacity', '.8');
+                                .style('fill', '#72839e')
 
                             }
                             else{
@@ -3907,7 +3900,6 @@ function main(){
                                 .transition()
                                 .style('fill', '#6E9EA4')
                                 .duration('50')
-                                    .attr('opacity', '.8');
                             }
                                 
                         })
@@ -3918,7 +3910,7 @@ function main(){
                                 d3.select(this)
                                 .transition()
                                 .duration('50')
-                                .attr('opacity', '1');
+                                .style('fill', corUserZona3)
                             }
                             else{
                                 d3.select('#tooltip')
@@ -3948,7 +3940,7 @@ function main(){
                                 .transition().duration(200)
                                 .style('opacity', 1)
                                 .style("left", a + "px")     
-                                .style("top", b + "px")
+                                .style("top", c + "px")
                                 .style("width", 250 + "px")
                                 .text("Sala Oval\n" + "Justificação: " + justificationUserZona2)
                                 .style("color", "#6E9EA4")
@@ -3957,7 +3949,7 @@ function main(){
                                 d3.select(this)
                                 .transition()
                                 .duration('50')
-                                    .attr('opacity', '.8');
+                                .style('fill', '#72839e')
 
                             }
                             else{
@@ -3975,7 +3967,7 @@ function main(){
                                 .transition()
                                 .style('fill', '#6E9EA4')
                                 .duration('50')
-                                    .attr('opacity', '.8');
+                                 
                             }
                                 
                         })
@@ -3986,7 +3978,8 @@ function main(){
                                 d3.select(this)
                                 .transition()
                                 .duration('50')
-                                .attr('opacity', '1');
+                                .attr('opacity', '1')
+                                .style('fill', corUserZona2);
                             }
                             else{
                                 d3.select('#tooltip')
@@ -4014,7 +4007,7 @@ function main(){
                                 .transition().duration(200)
                                 .style('opacity', 1)
                                 .style("left", a + "px")     
-                                .style("top", b + "px")
+                                .style("top", c + "px")
                                 .style("width", 250 + "px")
                                 .text("Project Room\n" + "Justificação: " + justificationUserZona4)
                                 .style("color", "#6E9EA4")
@@ -4023,7 +4016,7 @@ function main(){
                                 d3.select(this)
                                 .transition()
                                 .duration('50')
-                                    .attr('opacity', '.8');
+                                .style('fill', '#72839e')
 
                             }
                             else{
@@ -4041,7 +4034,7 @@ function main(){
                                 .transition()
                                 .style('fill', '#6E9EA4')
                                 .duration('50')
-                                    .attr('opacity', '.8');
+                                
                             }
                             
                                 
@@ -4053,7 +4046,8 @@ function main(){
                                 d3.select(this)
                                 .transition()
                                 .duration('50')
-                                .attr('opacity', '1');
+                                .attr('opacity', '1')
+                                .style('fill', corUserZona4)
                             }
                             else{
                                 d3.select('#tooltip')
@@ -4138,7 +4132,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                                .attr('opacity', '.8');
+                        .style('fill', '#72839e')
                     })
                     .on('mouseout', function (d, i) {
                         d3.select('#tooltip')
@@ -4146,7 +4140,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .attr('opacity', '1');
+                        .style('fill', corVisitaZona1)
                     })
 
                 var innerSVG = svg.append('svg')
@@ -4191,7 +4185,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                                .attr('opacity', '.8');
+                        .style('fill', '#72839e')
                     })
                     .on('mouseout', function (d, i) {
                         d3.select('#tooltip')
@@ -4199,7 +4193,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .attr('opacity', '1');
+                        .style('fill', corVisitaZona5)
                     })
 
 
@@ -4224,7 +4218,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                                .attr('opacity', '.8');
+                        .style('fill', '#72839e')
                     })
                     .on('mouseout', function (d, i) {
                         d3.select('#tooltip')
@@ -4232,7 +4226,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .attr('opacity', '1');
+                        .style('fill', corVisitaZona3)
                     })
 
                 innerSVG.append("path")
@@ -4256,7 +4250,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                                .attr('opacity', '.8');
+                        .style('fill', '#72839e')
                     })
                     .on('mouseout', function (d, i) {
                         d3.select('#tooltip')
@@ -4264,7 +4258,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .attr('opacity', '1');
+                        .style('fill', corVisitaZona2)
                     })
 
                 innerSVG.append("path")
@@ -4288,7 +4282,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                                .attr('opacity', '.8');
+                        .style('fill', '#72839e')
                     })
                     .on('mouseout', function (d, i) {
                         d3.select('#tooltip')
@@ -4296,7 +4290,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .attr('opacity', '1');
+                        .style('fill', corVisitaZona4)
                     })
 
                 innerSVG.raise()
@@ -4352,7 +4346,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                                    .attr('opacity', '.8');
+                            .style('fill', '#72839e')
                         })
                         .on('mouseout', function (d, i) {
                             d3.select('#tooltip')
@@ -4360,7 +4354,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .attr('opacity', '1');
+                            .style('fill', corUserVisitaZona1)
                         })
            
 
@@ -4385,7 +4379,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                                    .attr('opacity', '.8');
+                            .style('fill', '#72839e')
                         })
                         .on('mouseout', function (d, i) {
                             d3.select('#tooltip')
@@ -4393,7 +4387,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .attr('opacity', '1');
+                            .style('fill', corUserVisitaZona5)
                         })
 
                     innerSVG.append("path")
@@ -4417,7 +4411,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                                    .attr('opacity', '.8');
+                            .style('fill', '#72839e')
                         })
                         .on('mouseout', function (d, i) {
                             d3.select('#tooltip')
@@ -4425,7 +4419,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .attr('opacity', '1');
+                            .style('fill', corUserVisitaZona3)
                         })
 
                     innerSVG.append("path")
@@ -4449,7 +4443,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                                    .attr('opacity', '.8');
+                            .style('fill', '#72839e')
                         })
                         .on('mouseout', function (d, i) {
                             d3.select('#tooltip')
@@ -4457,7 +4451,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .attr('opacity', '1');
+                            .style('fill', corUserVisitaZona2)
                         })
 
                     innerSVG.append("path")
@@ -4481,7 +4475,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                                    .attr('opacity', '.8');
+                            .style('fill', '#72839e')
                         })
                         .on('mouseout', function (d, i) {
                             d3.select('#tooltip')
@@ -4489,7 +4483,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .attr('opacity', '1');
+                            .style('fill', corUserFutureZona4)
                         })
 
                     innerSVG.raise()
@@ -4558,7 +4552,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                             .attr('opacity', '.8');
+                        .style('fill', '#72839e')
                     })
                     .on('mouseout', function (d, i) {
                         d3.select('#tooltip')
@@ -4566,7 +4560,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .attr('opacity', '1');
+                        .style('fill', corFutureZona1)
                     })
 
                     var innerSVG = svg.append('svg')
@@ -4611,7 +4605,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                                .attr('opacity', '.8');
+                        .style('fill', '#72839e')
                     })
                     .on('mouseout', function (d, i) {
                         d3.select('#tooltip')
@@ -4619,7 +4613,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .attr('opacity', '1');
+                        .style('fill', corFutureZona5)
                     })
                 innerSVG.append("path")
                     .attr("id", 'mapaVideoRoom')
@@ -4642,7 +4636,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                                .attr('opacity', '.8');
+                        .style('fill', '#72839e')
                     })
                     .on('mouseout', function (d, i) {
                         d3.select('#tooltip')
@@ -4650,7 +4644,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .attr('opacity', '1');
+                        .style('fill', corFutureZona3)
                     })
 
                 innerSVG.append("path")
@@ -4674,7 +4668,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                                .attr('opacity', '.8');
+                        .style('fill', '#72839e')
                     })
                     .on('mouseout', function (d, i) {
                         d3.select('#tooltip')
@@ -4682,7 +4676,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .attr('opacity', '1');
+                        .style('fill', corFutureZona2)
                     })
 
                 innerSVG.append("path")
@@ -4706,7 +4700,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                                .attr('opacity', '.8');
+                        .style('fill', '#72839e')
                     })
                     .on('mouseout', function (d, i) {
                         d3.select('#tooltip')
@@ -4714,7 +4708,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .attr('opacity', '1');
+                        .style('fill', corFutureZona4)
                     })
 
                 innerSVG.raise()
@@ -4771,7 +4765,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                                .attr('opacity', '.8');
+                            .style('fill', '#72839e')
                         })
                         .on('mouseout', function (d, i) {
                             d3.select('#tooltip')
@@ -4779,7 +4773,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .attr('opacity', '1');
+                            .style('fill', corUserFutureZona1)
                         })
 
   
@@ -4805,7 +4799,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                                    .attr('opacity', '.8');
+                            .style('fill', '#72839e')
                         })
                         .on('mouseout', function (d, i) {
                             d3.select('#tooltip')
@@ -4813,7 +4807,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .attr('opacity', '1');
+                            .style('fill', corUserFutureZona5)
                         })
 
                     //VIDEO ROOM
@@ -4838,7 +4832,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                                    .attr('opacity', '.8');
+                            .style('fill', '#72839e')
                         })
                         .on('mouseout', function (d, i) {
                             d3.select('#tooltip')
@@ -4846,7 +4840,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .attr('opacity', '1');
+                            .style('fill', corUserFutureZona3)
                         })
 
                     //SALA OVAL
@@ -4871,7 +4865,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                                    .attr('opacity', '.8');
+                            .style('fill', '#72839e')
                         })
                         .on('mouseout', function (d, i) {
                             d3.select('#tooltip')
@@ -4879,7 +4873,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .attr('opacity', '1');
+                            .style('fill', corUserFutureZona2)
                         })
                                 
                     //PROJECT ROOM
@@ -4904,7 +4898,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                                    .attr('opacity', '.8');
+                            .style('fill', '#72839e')
                         })
                         .on('mouseout', function (d, i) {
                             d3.select('#tooltip')
@@ -4912,7 +4906,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .attr('opacity', '1');
+                            .style('fill', corUserFutureZona4)
                         })
 
                     innerSVG.raise()
@@ -5167,7 +5161,6 @@ function main(){
                     .style("fill", "url(#linear-gradientF)");
         
                 //DESENHAR MAPA
-                console.log('CORRRRR; ' + corFutureZona1)
                 if(numeroDeZonas == 1){  
                     drawZone(corFutureZona1, 'zona1', 720, 150, 540, 250, "")
                 } else if (numeroDeZonas == 2){
@@ -5218,7 +5211,6 @@ function main(){
                 if(client.classed("selected")){
                             
                     //DESENHAR MAPA
-                    console.log('CORRRRR USER; ' + corUserFutureZona1)
                     if(numeroDeZonas == 1){  
                         drawZone(corUserFutureZona1, 'zona1', 720, 150, 540, 250, "")
                     } else if (numeroDeZonas == 2){
