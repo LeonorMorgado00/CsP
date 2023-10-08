@@ -767,31 +767,39 @@ function main(){
                              //get ratings of the selected person
         
                             var indexToGet
+                           
                             for(let index2 = 0; index2 < usedIds.length; index2++){
-                                if(ids[indexes[index]] == usedIds[index2]){
+                                if(ids[index] == usedIds[index2]){
                                     // ANTES ETSAV ASSIM: indexToGet = index2
-                                    indexToGet = index
+                                    indexToGet = index2
                                 }
                             }
         
                             if (!d3.select(this).classed("selected") ){
                                 
-                                idToConsider = ids[indexes[index]]
+                                idToConsider = ids[index]
+
                                 ratingAntes = ratingsAntes[indexToGet]
                                 ratingApos = ratingsApos[indexToGet]
         
-                                //the others get lighter and deselect them
+                                //the others get lighter, deselect them, and delete from darwing
                                 for(let index1 = 0; index1 < indexes.length; index1++){
                                     if(ids[indexes[index1]] != ids[indexes[index]]){
                                         var teste = 'userc' + ids[indexes[index1]]
                                         var testee = d3.select("#" + teste)
-
                                         testee.classed("selected", false)
                                             .style('fill', "#6E9EA4")
+
+                                        var teste1 = 'rectuserantes' + ids[indexes[index1]]
+                                        var testee1 = d3.select("#" + teste1)
+                                        testee1.remove()
+
+                                        var teste1 = 'rectuserdepois' + ids[indexes[index1]]
+                                        var testee1 = d3.select("#" + teste1)
+                                        testee1.remove()
+                                        
                                     } 
                                 }
-        
-                            
         
                                 //APAGAR OS QUE ESTAVAM LA
                                 d3.select("#circle1").remove()
@@ -802,6 +810,8 @@ function main(){
                                 d3.select("#rect2").remove()
                                 d3.select("#rect3").remove()
                                 d3.select("#rect4").remove()
+
+
         
                                 //get all ratings by that user
                                 //get the indexes of the selected id
@@ -926,6 +936,7 @@ function main(){
                                         svg.select("#rectuserdepois" + usedIds[index1]).remove()
                                             
                                     }
+                                
                                     //square before
                                     svg.append('rect')
                                     .attr("id","rectuserantes" + usedIds[indexToGet])
@@ -3325,8 +3336,6 @@ function main(){
                 if(numeroDeZonas == 1){ 
                     drawZone(corZona1, 'zona1', 720, 150, 540, 250, "")
                 } else if (numeroDeZonas == 2){
-                    console.log('ENTROU') 
-                    console.log('nomeDaZona: ' + nomeDaZona)
                     drawZone(corZona1, 'zona1', 720, 150, 270, 250, "", nomeDaZona)
                     drawZone(corZona2, 'zona2', 990, 150, 270, 250, "", nomeDaZona2)
                 } else if (numeroDeZonas == 3){
@@ -3354,7 +3363,6 @@ function main(){
 
         function drawZone(colorToUse, idToUse, xToUse, yToUse, widthToUse, heightToUse, justificationToUse, nameToUse){     
             if(nameToUse == null) nameToUse = ""
-            console.log(nameToUse)
             svg.append('rect')
             .attr('id', idToUse)
             .attr('x', xToUse)
@@ -4990,8 +4998,6 @@ function main(){
         
                 //DESENHAR MAPA
                 if(numeroDeZonas == 1){  
-                    console.log('ENTROU2') 
-                    console.log('nomeDaZona: ' + nomeDaZona)
                     drawZone(corZona1, 'zona1', 720, 150, 540, 250, "")
                 } else if (numeroDeZonas == 2){
                     drawZone(corZona1, 'zona1', 720, 150, 270, 250, "")
@@ -5022,8 +5028,6 @@ function main(){
                 if(client.classed("selected")){
                     //DESENHAR MAPA
                     if(numeroDeZonas == 1){  
-                        console.log('ENTROU3') 
-                    console.log('nomeDaZona: ' + nomeDaZona)
                         drawZone(corUserZona1, 'zona1', 720, 150, 540, 250, justificationUserZona1)
                     } else if (numeroDeZonas == 2){
                         drawZone(corUserZona1, 'zona1', 720, 150, 270, 250, justificationUserZona1)
@@ -5089,8 +5093,6 @@ function main(){
         
                 //DESENHAR MAPA
                 if(numeroDeZonas == 1){  
-                    console.log('ENTROU4') 
-                    console.log('nomeDaZona: ' + nomeDaZona)
                     drawZone(corVisitaZona1, 'zona1', 720, 150, 540, 250, "")
                 } else if (numeroDeZonas == 2){
                     drawZone(corVisitaZona1, 'zona1', 720, 150, 270, 250, "")
@@ -5141,8 +5143,6 @@ function main(){
                 if(client.classed("selected")){
                     //DESENHAR MAPA
                     if(numeroDeZonas == 1){  
-                        console.log('ENTROU5') 
-                    console.log('nomeDaZona: ' + nomeDaZona)
                         drawZone(corUserVisitaZona1, 'zona1', 720, 150, 540, 250, "")
                     } else if (numeroDeZonas == 2){
                         drawZone(corUserVisitaZona1, 'zona1', 720, 150, 270, 250, "")
@@ -5206,8 +5206,6 @@ function main(){
         
                 //DESENHAR MAPA
                 if(numeroDeZonas == 1){  
-                    console.log('ENTROU6') 
-                    console.log('nomeDaZona: ' + nomeDaZona)
                     drawZone(corFutureZona1, 'zona1', 720, 150, 540, 250, "")
                 } else if (numeroDeZonas == 2){
                     drawZone(corFutureZona1, 'zona1', 720, 150, 270, 250, "")
@@ -5258,8 +5256,6 @@ function main(){
                             
                     //DESENHAR MAPA
                     if(numeroDeZonas == 1){  
-                        console.log('ENTROU7') 
-                    console.log('nomeDaZona: ' + nomeDaZona)
                         drawZone(corUserFutureZona1, 'zona1', 720, 150, 540, 250, "")
                     } else if (numeroDeZonas == 2){
                         drawZone(corUserFutureZona1, 'zona1', 720, 150, 270, 250, "")
