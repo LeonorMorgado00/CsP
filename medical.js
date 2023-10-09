@@ -3514,25 +3514,25 @@ function main(){
                 //desenhar a nova vis
                 //COM BASE NO NUMERO DE ZONAS, DIVIDIR A VISUALIZACAO
                 if(numeroDeZonas == 1){ 
-                    drawZone(corZona1, 'zona1', 720, 150, 540, 250, "")
+                    drawZone(corZona1, 'zona1', 720, 150, 540, 250, "", nomeDaZona)
                 } else if (numeroDeZonas == 2){
                     drawZone(corZona1, 'zona1', 720, 150, 270, 250, "", nomeDaZona)
                     drawZone(corZona2, 'zona2', 990, 150, 270, 250, "", nomeDaZona2)
                 } else if (numeroDeZonas == 3){
-                    drawZone(corZona1, 'zona1', 720, 150, 180, 250, "")
-                    drawZone(corZona2, 'zona2', 900, 150, 180, 250, "")
-                    drawZone(corZona3, 'zona3', 1080, 150, 180, 250, "")                        
+                    drawZone(corZona1, 'zona1', 720, 150, 180, 250, "", nomeDaZona)
+                    drawZone(corZona2, 'zona2', 900, 150, 180, 250, "", nomeDaZona2)
+                    drawZone(corZona3, 'zona3', 1080, 150, 180, 250, "", nomeDaZona3)                        
                 } else if (numeroDeZonas == 4){
-                    drawZone(corZona1, 'zona1', 720, 150, 270, 125, "")
-                    drawZone(corZona2, 'zona2', 990, 150, 270, 125, "")
-                    drawZone(corZona3, 'zona3', 720, 275, 270, 125, "")
-                    drawZone(corZona4, 'zona4', 990, 275, 270, 125, "")
+                    drawZone(corZona1, 'zona1', 720, 150, 270, 125, "", nomeDaZona)
+                    drawZone(corZona2, 'zona2', 990, 150, 270, 125, "", nomeDaZona2)
+                    drawZone(corZona3, 'zona3', 720, 275, 270, 125, "", nomeDaZona3)
+                    drawZone(corZona4, 'zona4', 990, 275, 270, 125, "", nomeDaZona4)
                 } else if (numeroDeZonas == 5){
-                    drawZone(corZona1, 'zona1', 720, 150, 180, 125, "")
-                    drawZone(corZona2, 'zona2', 720, 275, 180, 125, "")
-                    drawZone(corZona3, 'zona3', 900, 150, 180, 250, "")
-                    drawZone(corZona4, 'zona4', 1080, 150, 180, 125, "")
-                    drawZone(corZona5, 'zona5', 1080, 275, 180, 125, "")                        
+                    drawZone(corZona1, 'zona1', 720, 150, 180, 125, "", nomeDaZona)
+                    drawZone(corZona2, 'zona2', 720, 275, 180, 125, "", nomeDaZona2)
+                    drawZone(corZona3, 'zona3', 900, 150, 180, 250, "", nomeDaZona3)
+                    drawZone(corZona4, 'zona4', 1080, 150, 180, 125, "", nomeDaZona4)
+                    drawZone(corZona5, 'zona5', 1080, 275, 180, 125, "", nomeDaZona5)                        
                 }
 
                 
@@ -5178,25 +5178,25 @@ function main(){
         
                 //DESENHAR MAPA
                 if(numeroDeZonas == 1){  
-                    drawZone(corZona1, 'zona1', 720, 150, 540, 250, "")
+                    drawZone(corZona1, 'zona1', 720, 150, 540, 250, "", nomeDaZona)
                 } else if (numeroDeZonas == 2){
-                    drawZone(corZona1, 'zona1', 720, 150, 270, 250, "")
-                    drawZone(corZona2, 'zona2', 990, 150, 270, 250, "")
+                    drawZone(corZona1, 'zona1', 720, 150, 270, 250, "", nomeDaZona)
+                    drawZone(corZona2, 'zona2', 990, 150, 270, 250, "", nomeDaZona2)
                 } else if (numeroDeZonas == 3){
-                    drawZone(corZona1, 'zona1', 720, 150, 180, 250, "")
-                    drawZone(corZona2, 'zona2', 900, 150, 180, 250, "")
-                    drawZone(corZona3, 'zona3', 1080, 150, 180, 250, "")                        
+                    drawZone(corZona1, 'zona1', 720, 150, 180, 250, "", nomeDaZona)
+                    drawZone(corZona2, 'zona2', 900, 150, 180, 250, "", nomeDaZona2)
+                    drawZone(corZona3, 'zona3', 1080, 150, 180, 250, "", nomeDaZona3)                        
                 } else if (numeroDeZonas == 4){
-                    drawZone(corZona1, 'zona1', 720, 150, 270, 125, "")
-                    drawZone(corZona2, 'zona2', 990, 150, 270, 125, "")
-                    drawZone(corZona3, 'zona3', 720, 275, 270, 125, "")
-                    drawZone(corZona4, 'zona4', 990, 275, 270, 125, "")
+                    drawZone(corZona1, 'zona1', 720, 150, 270, 125, "", nomeDaZona)
+                    drawZone(corZona2, 'zona2', 990, 150, 270, 125, "", nomeDaZona2)
+                    drawZone(corZona3, 'zona3', 720, 275, 270, 125, "", nomeDaZona3)
+                    drawZone(corZona4, 'zona4', 990, 275, 270, 125, "", nomeDaZona4)
                 } else if (numeroDeZonas == 5){
-                    drawZone(corZona1, 'zona1', 720, 150, 180, 125, "")
-                    drawZone(corZona2, 'zona2', 720, 275, 180, 125, "")
-                    drawZone(corZona3, 'zona3', 900, 150, 180, 250, "")
-                    drawZone(corZona4, 'zona4', 1080, 150, 180, 125, "")
-                    drawZone(corZona5, 'zona5', 1080, 275, 180, 125, "")                        
+                    drawZone(corZona1, 'zona1', 720, 150, 180, 125, "", nomeDaZona)
+                    drawZone(corZona2, 'zona2', 720, 275, 180, 125, "", nomeDaZona2)
+                    drawZone(corZona3, 'zona3', 900, 150, 180, 250, "", nomeDaZona3)
+                    drawZone(corZona4, 'zona4', 1080, 150, 180, 125, "", nomeDaZona4)
+                    drawZone(corZona5, 'zona5', 1080, 275, 180, 125, "", nomeDaZona5)                        
                 }
                 
         
@@ -5208,25 +5208,25 @@ function main(){
                 if(client.classed("selected")){
                     //DESENHAR MAPA
                     if(numeroDeZonas == 1){  
-                        drawZone(corUserZona1, 'zona1', 720, 150, 540, 250, justificationUserZona1)
+                        drawZone(corUserZona1, 'zona1', 720, 150, 540, 250, justificationUserZona1, nomeDaZona)
                     } else if (numeroDeZonas == 2){
-                        drawZone(corUserZona1, 'zona1', 720, 150, 270, 250, justificationUserZona1)
-                        drawZone(corUserZona2, 'zona2', 990, 150, 270, 250, justificationUserZona2)
+                        drawZone(corUserZona1, 'zona1', 720, 150, 270, 250, justificationUserZona1, nomeDaZona)
+                        drawZone(corUserZona2, 'zona2', 990, 150, 270, 250, justificationUserZona2, nomeDaZona2)
                     } else if (numeroDeZonas == 3){
-                        drawZone(corUserZona1, 'zona1', 720, 150, 180, 250, justificationUserZona1)
-                        drawZone(corUserZona2, 'zona2', 900, 150, 180, 250, justificationUserZona2)
-                        drawZone(corUserZona3, 'zona3', 1080, 150, 180, 250, justificationUserZona3)                        
+                        drawZone(corUserZona1, 'zona1', 720, 150, 180, 250, justificationUserZona1, nomeDaZona)
+                        drawZone(corUserZona2, 'zona2', 900, 150, 180, 250, justificationUserZona2, nomeDaZona2)
+                        drawZone(corUserZona3, 'zona3', 1080, 150, 180, 250, justificationUserZona3, nomeDaZona3)                        
                     } else if (numeroDeZonas == 4){
-                        drawZone(corUserZona1, 'zona1', 720, 150, 270, 125, justificationUserZona1)
-                        drawZone(corUserZona2, 'zona2', 990, 150, 270, 125, justificationUserZona2)
-                        drawZone(corUserZona3, 'zona3', 720, 275, 270, 125, justificationUserZona3)
-                        drawZone(corUserZona4, 'zona4', 990, 275, 270, 125, justificationUserZona4)
+                        drawZone(corUserZona1, 'zona1', 720, 150, 270, 125, justificationUserZona1, nomeDaZona)
+                        drawZone(corUserZona2, 'zona2', 990, 150, 270, 125, justificationUserZona2, nomeDaZona2)
+                        drawZone(corUserZona3, 'zona3', 720, 275, 270, 125, justificationUserZona3, nomeDaZona3)
+                        drawZone(corUserZona4, 'zona4', 990, 275, 270, 125, justificationUserZona4, nomeDaZona4)
                     } else if (numeroDeZonas == 5){
-                        drawZone(corUserZona1, 'zona1', 720, 150, 180, 125, justificationUserZona1)
-                        drawZone(corUserZona2, 'zona2', 720, 275, 180, 125, justificationUserZona2)
-                        drawZone(corUserZona3, 'zona3', 900, 150, 180, 250, justificationUserZona3)
-                        drawZone(corUserZona4, 'zona4', 1080, 150, 180, 125, justificationUserZona4)
-                        drawZone(corUserZona5, 'zona5', 1080, 275, 180, 125, justificationUserZona5)                        
+                        drawZone(corUserZona1, 'zona1', 720, 150, 180, 125, justificationUserZona1, nomeDaZona)
+                        drawZone(corUserZona2, 'zona2', 720, 275, 180, 125, justificationUserZona2, nomeDaZona2)
+                        drawZone(corUserZona3, 'zona3', 900, 150, 180, 250, justificationUserZona3, nomeDaZona3)
+                        drawZone(corUserZona4, 'zona4', 1080, 150, 180, 125, justificationUserZona4, nomeDaZona4)
+                        drawZone(corUserZona5, 'zona5', 1080, 275, 180, 125, justificationUserZona5, nomeDaZona5)                        
                     }
                     
         
@@ -5273,25 +5273,25 @@ function main(){
         
                 //DESENHAR MAPA
                 if(numeroDeZonas == 1){  
-                    drawZone(corVisitaZona1, 'zona1', 720, 150, 540, 250, "")
+                    drawZone(corVisitaZona1, 'zona1', 720, 150, 540, 250, "", nomeDaZona)
                 } else if (numeroDeZonas == 2){
-                    drawZone(corVisitaZona1, 'zona1', 720, 150, 270, 250, "")
-                    drawZone(corVisitaZona2, 'zona2', 990, 150, 270, 250, "")
+                    drawZone(corVisitaZona1, 'zona1', 720, 150, 270, 250, "", nomeDaZona)
+                    drawZone(corVisitaZona2, 'zona2', 990, 150, 270, 250, "", nomeDaZona2)
                 } else if (numeroDeZonas == 3){
-                    drawZone(corVisitaZona1, 'zona1', 720, 150, 180, 250, "")
-                    drawZone(corVisitaZona2, 'zona2', 900, 150, 180, 250, "")
-                    drawZone(corVisitaZona3, 'zona3', 1080, 150, 180, 250, "")                        
+                    drawZone(corVisitaZona1, 'zona1', 720, 150, 180, 250, "", nomeDaZona)
+                    drawZone(corVisitaZona2, 'zona2', 900, 150, 180, 250, "", nomeDaZona2)
+                    drawZone(corVisitaZona3, 'zona3', 1080, 150, 180, 250, "", nomeDaZona3)                        
                 } else if (numeroDeZonas == 4){
-                    drawZone(corVisitaZona1, 'zona1', 720, 150, 270, 125, "")
-                    drawZone(corVisitaZona2, 'zona2', 990, 150, 270, 125, "")
-                    drawZone(corVisitaZona3, 'zona3', 720, 275, 270, 125, "")
-                    drawZone(corVisitaZona4, 'zona4', 990, 275, 270, 125, "")
+                    drawZone(corVisitaZona1, 'zona1', 720, 150, 270, 125, "", nomeDaZona)
+                    drawZone(corVisitaZona2, 'zona2', 990, 150, 270, 125, "", nomeDaZona2)
+                    drawZone(corVisitaZona3, 'zona3', 720, 275, 270, 125, "", nomeDaZona3)
+                    drawZone(corVisitaZona4, 'zona4', 990, 275, 270, 125, "", nomeDaZona4)
                 } else if (numeroDeZonas == 5){
-                    drawZone(corVisitaZona1, 'zona1', 720, 150, 180, 125, "")
-                    drawZone(corVisitaZona2, 'zona2', 720, 275, 180, 125, "")
-                    drawZone(corVisitaZona3, 'zona3', 900, 150, 180, 250, "")
-                    drawZone(corVisitaZona4, 'zona4', 1080, 150, 180, 125, "")
-                    drawZone(corVisitaZona5, 'zona5', 1080, 275, 180, 125, "")                        
+                    drawZone(corVisitaZona1, 'zona1', 720, 150, 180, 125, "", nomeDaZona)
+                    drawZone(corVisitaZona2, 'zona2', 720, 275, 180, 125, "", nomeDaZona2)
+                    drawZone(corVisitaZona3, 'zona3', 900, 150, 180, 250, "", nomeDaZona3)
+                    drawZone(corVisitaZona4, 'zona4', 1080, 150, 180, 125, "", nomeDaZona4)
+                    drawZone(corVisitaZona5, 'zona5', 1080, 275, 180, 125, "", nomeDaZona5)                        
                 }
                 
         
@@ -5323,25 +5323,25 @@ function main(){
                 if(client.classed("selected")){
                     //DESENHAR MAPA
                     if(numeroDeZonas == 1){  
-                        drawZone(corUserVisitaZona1, 'zona1', 720, 150, 540, 250, "")
+                        drawZone(corUserVisitaZona1, 'zona1', 720, 150, 540, 250, "", nomeDaZona)
                     } else if (numeroDeZonas == 2){
-                        drawZone(corUserVisitaZona1, 'zona1', 720, 150, 270, 250, "")
-                        drawZone(corUserVisitaZona2, 'zona2', 990, 150, 270, 250, "")
+                        drawZone(corUserVisitaZona1, 'zona1', 720, 150, 270, 250, "", nomeDaZona)
+                        drawZone(corUserVisitaZona2, 'zona2', 990, 150, 270, 250, "", nomeDaZona2)
                     } else if (numeroDeZonas == 3){
-                        drawZone(corUserVisitaZona1, 'zona1', 720, 150, 180, 250, "")
-                        drawZone(corUserVisitaZona2, 'zona2', 900, 150, 180, 250, "")
-                        drawZone(corUserVisitaZona3, 'zona3', 1080, 150, 180, 250, "")                        
+                        drawZone(corUserVisitaZona1, 'zona1', 720, 150, 180, 250, "", nomeDaZona)
+                        drawZone(corUserVisitaZona2, 'zona2', 900, 150, 180, 250, "", nomeDaZona2)
+                        drawZone(corUserVisitaZona3, 'zona3', 1080, 150, 180, 250, "", nomeDaZona3)                        
                     } else if (numeroDeZonas == 4){
-                        drawZone(corUserVisitaZona1, 'zona1', 720, 150, 270, 125, "")
-                        drawZone(corUserVisitaZona2, 'zona2', 990, 150, 270, 125, "")
-                        drawZone(corUserVisitaZona3, 'zona3', 720, 275, 270, 125, "")
-                        drawZone(corUserVisitaZona4, 'zona4', 990, 275, 270, 125, "")
+                        drawZone(corUserVisitaZona1, 'zona1', 720, 150, 270, 125, "", nomeDaZona)
+                        drawZone(corUserVisitaZona2, 'zona2', 990, 150, 270, 125, "", nomeDaZona2)
+                        drawZone(corUserVisitaZona3, 'zona3', 720, 275, 270, 125, "", nomeDaZona3)
+                        drawZone(corUserVisitaZona4, 'zona4', 990, 275, 270, 125, "", nomeDaZona4)
                     } else if (numeroDeZonas == 5){
-                        drawZone(corUserVisitaZona1, 'zona1', 720, 150, 180, 125, "")
-                        drawZone(corUserVisitaZona2, 'zona2', 720, 275, 180, 125, "")
-                        drawZone(corUserVisitaZona3, 'zona3', 900, 150, 180, 250, "")
-                        drawZone(corUserVisitaZona4, 'zona4', 1080, 150, 180, 125, "")
-                        drawZone(corUserVisitaZona5, 'zona5', 1080, 275, 180, 125, "")                        
+                        drawZone(corUserVisitaZona1, 'zona1', 720, 150, 180, 125, "", nomeDaZona)
+                        drawZone(corUserVisitaZona2, 'zona2', 720, 275, 180, 125, "", nomeDaZona2)
+                        drawZone(corUserVisitaZona3, 'zona3', 900, 150, 180, 250, "", nomeDaZona3)
+                        drawZone(corUserVisitaZona4, 'zona4', 1080, 150, 180, 125, "", nomeDaZona4)
+                        drawZone(corUserVisitaZona5, 'zona5', 1080, 275, 180, 125, "", nomeDaZona5)                        
                     }
                     
         
@@ -5386,25 +5386,25 @@ function main(){
         
                 //DESENHAR MAPA
                 if(numeroDeZonas == 1){  
-                    drawZone(corFutureZona1, 'zona1', 720, 150, 540, 250, "")
+                    drawZone(corFutureZona1, 'zona1', 720, 150, 540, 250, "", nomeDaZona)
                 } else if (numeroDeZonas == 2){
-                    drawZone(corFutureZona1, 'zona1', 720, 150, 270, 250, "")
-                    drawZone(corFutureZona2, 'zona2', 990, 150, 270, 250, "")
+                    drawZone(corFutureZona1, 'zona1', 720, 150, 270, 250, "", nomeDaZona)
+                    drawZone(corFutureZona2, 'zona2', 990, 150, 270, 250, "", nomeDaZona2)
                 } else if (numeroDeZonas == 3){
-                    drawZone(corFutureZona1, 'zona1', 720, 150, 180, 250, "")
-                    drawZone(corFutureZona2, 'zona2', 900, 150, 180, 250, "")
-                    drawZone(corFutureZona3, 'zona3', 1080, 150, 180, 250, "")                        
+                    drawZone(corFutureZona1, 'zona1', 720, 150, 180, 250, "", nomeDaZona)
+                    drawZone(corFutureZona2, 'zona2', 900, 150, 180, 250, "", nomeDaZona2)
+                    drawZone(corFutureZona3, 'zona3', 1080, 150, 180, 250, "", nomeDaZona3)                        
                 } else if (numeroDeZonas == 4){
-                    drawZone(corFutureZona1, 'zona1', 720, 150, 270, 125, "")
-                    drawZone(corFutureZona2, 'zona2', 990, 150, 270, 125, "")
-                    drawZone(corFutureZona3, 'zona3', 720, 275, 270, 125, "")
-                    drawZone(corFutureZona4, 'zona4', 990, 275, 270, 125, "")
+                    drawZone(corFutureZona1, 'zona1', 720, 150, 270, 125, "", nomeDaZona)
+                    drawZone(corFutureZona2, 'zona2', 990, 150, 270, 125, "", nomeDaZona2)
+                    drawZone(corFutureZona3, 'zona3', 720, 275, 270, 125, "", nomeDaZona3)
+                    drawZone(corFutureZona4, 'zona4', 990, 275, 270, 125, "", nomeDaZona4)
                 } else if (numeroDeZonas == 5){
-                    drawZone(corFutureZona1, 'zona1', 720, 150, 180, 125, "")
-                    drawZone(corFutureZona2, 'zona2', 720, 275, 180, 125, "")
-                    drawZone(corFutureZona3, 'zona3', 900, 150, 180, 250, "")
-                    drawZone(corFutureZona4, 'zona4', 1080, 150, 180, 125, "")
-                    drawZone(corFutureZona5, 'zona5', 1080, 275, 180, 125, "")                        
+                    drawZone(corFutureZona1, 'zona1', 720, 150, 180, 125, "", nomeDaZona)
+                    drawZone(corFutureZona2, 'zona2', 720, 275, 180, 125, "", nomeDaZona2)
+                    drawZone(corFutureZona3, 'zona3', 900, 150, 180, 250, "", nomeDaZona3)
+                    drawZone(corFutureZona4, 'zona4', 1080, 150, 180, 125, "", nomeDaZona4)
+                    drawZone(corFutureZona5, 'zona5', 1080, 275, 180, 125, "", nomeDaZona5)                        
                 }
                 
         
@@ -5436,25 +5436,25 @@ function main(){
                             
                     //DESENHAR MAPA
                     if(numeroDeZonas == 1){  
-                        drawZone(corUserFutureZona1, 'zona1', 720, 150, 540, 250, "")
+                        drawZone(corUserFutureZona1, 'zona1', 720, 150, 540, 250, "", nomeDaZona)
                     } else if (numeroDeZonas == 2){
-                        drawZone(corUserFutureZona1, 'zona1', 720, 150, 270, 250, "")
-                        drawZone(corUserFutureZona2, 'zona2', 990, 150, 270, 250, "")
+                        drawZone(corUserFutureZona1, 'zona1', 720, 150, 270, 250, "", nomeDaZona)
+                        drawZone(corUserFutureZona2, 'zona2', 990, 150, 270, 250, "", nomeDaZona2)
                     } else if (numeroDeZonas == 3){
-                        drawZone(corUserFutureZona1, 'zona1', 720, 150, 180, 250, "")
-                        drawZone(corUserFutureZona2, 'zona2', 900, 150, 180, 250, "")
-                        drawZone(corUserFutureZona3, 'zona3', 1080, 150, 180, 250, "")                        
+                        drawZone(corUserFutureZona1, 'zona1', 720, 150, 180, 250, "", nomeDaZona)
+                        drawZone(corUserFutureZona2, 'zona2', 900, 150, 180, 250, "", nomeDaZona2)
+                        drawZone(corUserFutureZona3, 'zona3', 1080, 150, 180, 250, "", nomeDaZona3)                        
                     } else if (numeroDeZonas == 4){
-                        drawZone(corUserFutureZona1, 'zona1', 720, 150, 270, 125, "")
-                        drawZone(corUserFutureZona2, 'zona2', 990, 150, 270, 125, "")
-                        drawZone(corUserFutureZona3, 'zona3', 720, 275, 270, 125, "")
-                        drawZone(corUserFutureZona4, 'zona4', 990, 275, 270, 125, "")
+                        drawZone(corUserFutureZona1, 'zona1', 720, 150, 270, 125, "", nomeDaZona)
+                        drawZone(corUserFutureZona2, 'zona2', 990, 150, 270, 125, "", nomeDaZona2)
+                        drawZone(corUserFutureZona3, 'zona3', 720, 275, 270, 125, "", nomeDaZona3)
+                        drawZone(corUserFutureZona4, 'zona4', 990, 275, 270, 125, "", nomeDaZona4)
                     } else if (numeroDeZonas == 5){
-                        drawZone(corUserFutureZona1, 'zona1', 720, 150, 180, 125, "")
-                        drawZone(corUserFutureZona2, 'zona2', 720, 275, 180, 125, "")
-                        drawZone(corUserFutureZona3, 'zona3', 900, 150, 180, 250, "")
-                        drawZone(corUserFutureZona4, 'zona4', 1080, 150, 180, 125, "")
-                        drawZone(corUserFutureZona5, 'zona5', 1080, 275, 180, 125, "")                        
+                        drawZone(corUserFutureZona1, 'zona1', 720, 150, 180, 125, "", nomeDaZona)
+                        drawZone(corUserFutureZona2, 'zona2', 720, 275, 180, 125, "", nomeDaZona2)
+                        drawZone(corUserFutureZona3, 'zona3', 900, 150, 180, 250, "", nomeDaZona3)
+                        drawZone(corUserFutureZona4, 'zona4', 1080, 150, 180, 125, "", nomeDaZona4)
+                        drawZone(corUserFutureZona5, 'zona5', 1080, 275, 180, 125, "", nomeDaZona5)                        
                     }
                     
         
