@@ -1321,6 +1321,70 @@ function main(){
             .style("font-weight", 800)
             .style("font-family", "Roboto")
             .style("font-size", '12px')
+            .on('click', function(e, d){
+                //APAGAR OS QUE ESTAVAM LA
+                d3.select("#circle1").remove()
+                d3.select("#circle2").remove()
+                d3.select("#circle3").remove()
+                d3.select("#circle4").remove()
+                d3.select("#rect1").remove()
+                d3.select("#rect2").remove()
+                d3.select("#rect3").remove()
+                d3.select("#rect4").remove()  
+    
+                //deselect as outras
+                if(d3.select("#todas").classed("selected")){
+                    d3.select("#todas").classed("selected", false)
+                    d3.select("#todas")
+                        .style('fill', "#6E9EA4")
+                    //METER OS USERS TODOS A AZUL CLARO QUANDO VOLTO PARA OS CIRCULOS
+                    for(let index1 = 0; index1 < indexes.length; index1++){
+                        var teste = 'userc' + ids[indexes[index1]]
+                        var testee = d3.select("#" + teste)
+    
+                        testee.classed("selected", false)
+                            .style('fill', "#6E9EA4")
+    
+                    }
+                }
+                if (!d3.select("#ultima").classed("selected") ){
+                    d3.select("#ultima").classed("selected", true)
+                    d3.select("#ultima").style('fill', "#6E9EA4")
+                    d3.select("#circleAntes").remove()
+                    d3.select("#circleDepois").remove()
+                    //apagar todos os quadrados criados
+                    for(let index1 = 0; index1 < indexes.length; index1++){
+                        var teste = 'rectuserantes' + ids[indexes[index1]]
+                        var testee = d3.select("#" + teste)
+                        testee.remove()
+                        var teste1 = 'rectuserdepois' + ids[indexes[index1]]
+                        var testee1 = d3.select("#" + teste1)
+                        testee1.remove()
+    
+                        var teste2 = 'userc' + ids[indexes[index1]]
+                        var testee2 = d3.select("#" + teste2)
+                        
+                        testee2.classed("selected", false)
+                        .style('fill', "#6E9EA4")
+                    }
+                    //meter quadrados a azul claro
+    
+                    d3.select("#legendaCircle1").remove()
+                    d3.select("#legendaCircle2").remove()
+                    d3.select("#overall5").remove()
+                    d3.select("#overall2").remove()
+                    d3.select("#overall3").remove()
+                    d3.select("#overall4").remove()
+    
+                
+    
+                }else{
+                    d3.select("#ultima").classed("selected", false);
+                    d3.select("#ultima").style('fill', "#0d4148")
+                    drawCircleChart()
+                }
+    
+            });
 
         //BOTAO SWB TODAS
         var todas = svg.append("g");
@@ -1387,6 +1451,50 @@ function main(){
             .style("font-weight", 800)
             .style("font-family", "Roboto")
             .style("font-size", '12px')
+            .on('click', function(e, d){
+                //meter a null para limpar o gráfico
+                idToConsider = null
+                //deselect as outras
+                if(!d3.select("#ultima").classed("selected")){
+                    d3.select("#ultima").classed("selected", true)
+                    d3.select("#ultima")
+                        .style('fill', "#6E9EA4")                           
+                        drawLineChart()
+
+                    //meter os users selecionados todos a nulo e epagar os quadrados
+                    for(let index1 = 0; index1 < indexes.length; index1++){
+                        var teste = 'userc' + ids[indexes[index1]]
+                        var testee = d3.select("#" + teste)
+
+                        testee.classed("selected", false)
+                            .style('fill', "#6E9EA4")
+                    }
+                    
+
+                }
+                if (!d3.select(this).classed("selected") ){
+                    d3.select("#todas").classed("selected", true)
+                    d3.select("#todas").style('fill', "#0d4148")
+
+                    
+                    drawLineChart()
+                    
+
+                }else{
+                    d3.select(this).classed("selected", false);
+                    d3.select(this).style('fill', "#6E9EA4")
+                    d3.select("#legendaLine1").remove()
+                    d3.select("#legendaLine2").remove()
+                    d3.select("#legendaLine3").remove()
+                    d3.select("#legendaLine4").remove()
+                    d3.select("#overallb").remove()
+                    d3.select("#overallc").remove()
+                    d3.select("#overalld").remove()
+                    d3.select("#overalle").remove()
+
+                }     
+            
+            });
 
 
         //linha dos x
@@ -1819,13 +1927,6 @@ function main(){
     .style("font-weight", 800)
     .style("font-family", "Poppins")
     .style("font-size", '20px')
-
-            
-    
-
- 
-
-        
 
         //CORES PARA NUMERO DE PESSOAS NAS SALAS GERAL
         var corVisitaZona1
@@ -2460,9 +2561,37 @@ function main(){
             .style("font-weight", 800)
             .style("font-family", "Roboto")
             .style("font-size", '12px')
+            .on('click', function(e, d){
+                //deselect as outras
+                if(d3.select("#g2").classed("selected") || d3.select("#g3").classed("selected")){
+                    d3.select("#g2").classed("selected", false)
+                    d3.select("#g2")
+                        .style('fill', "#6E9EA4")
+                    d3.select("#g3").classed("selected", false)
+                    d3.select("#g3")
+                        .style('fill', "#6E9EA4")
+                }
+                if (!d3.select('#g1').classed("selected") ){
+                    d3.select('#g1').classed("selected", true)
+                    d3.select('#g1').style('fill', "#6E9EA4")
+                    d3.select("#colores").remove()
+                                
+                }else{
+                    d3.select('#g1').classed("selected", false)
+                    d3.select('#g1').style('fill', "#0d4148")
+                    if(selecedLocal == 'MAAT'){
+                        colorir();
+                    }
+                    else colorir2();
+                    
+
+                }
+            
+            });
 
 
         //BOTAO SALAS MAIS VISITADAS
+        
         var group2 = svg.append("g");
         group2.append('rect')
             .attr("id", 'g2')
@@ -2472,8 +2601,7 @@ function main(){
             .attr('height', 25)
             .style("fill", "#6E9EA4")
             .style('stroke', "black")
-            .on('click', function(e, d){
-                
+            .on('click', function(e, d){  
                 //deselect as outras
                 if(!d3.select("#g1").classed("selected") || d3.select("#g3").classed("selected")){
                     d3.select("#g1").classed("selected", true)
@@ -2497,9 +2625,7 @@ function main(){
                     d3.select('#g2').style('fill', "#6E9EA4")
                     d3.select(this).classed("selected", false);
                     d3.select(this).style('fill', "#6E9EA4")
-                    d3.select("#colores").remove()
-
-                    
+                    d3.select("#colores").remove()   
                 }
             });
 
@@ -2512,6 +2638,33 @@ function main(){
             .style("font-weight", 800)
             .style("font-family", "Roboto")
             .style("font-size", '12px')
+            .on('click', function(e, d){  
+                //deselect as outras
+                if(!d3.select("#g1").classed("selected") || d3.select("#g3").classed("selected")){
+                    d3.select("#g1").classed("selected", true)
+                    d3.select("#g1").style('fill', '#6E9EA4')
+                    d3.select("#g3").classed("selected", false)
+                    d3.select("#g3").style('fill', '#6E9EA4')                        
+                }
+                if (!d3.select('#g2').classed("selected") ){
+                    d3.select('#g2').classed("selected", true)
+                    d3.select('#g2').style('fill', "#0d4148")
+                    verNumeroSalas()
+                    if(selecedLocal == 'MAAT'){
+                        colorir();
+                    }
+                    else colorir2();
+
+                }else{
+                    d3.select('#g2').classed("selected", false);
+                    d3.select('#g2').style('fill', "#6E9EA4")
+
+                    d3.select("#colores").remove()   
+                }
+            });
+
+            group2.raise()
+            
 
 
         //BOTAO FUTURAS CONSULTAS
@@ -2565,6 +2718,33 @@ function main(){
         .style("font-weight", 800)
         .style("font-family", "Roboto")
         .style("font-size", '12px')
+        .on('click', function(e, d){
+
+            if(!d3.select("#g1").classed("selected") || d3.select("#g2").classed("selected")){
+                d3.select("#g1").classed("selected", true)
+                d3.select("#g1")
+                    .style('fill', "#6E9EA4")
+                d3.select("#g2").classed("selected", false)
+                d3.select("#g2")
+                    .style('fill', "#6E9EA4")
+            }
+            
+            if (!d3.select('#g3').classed("selected") ){
+                d3.select('#g3').classed("selected", true)
+                d3.select('#g3').style('fill', "#0d4148")   
+                if(selecedLocal == 'MAAT'){
+                    colorir();
+                }
+                else colorir2();
+
+            }else{
+                d3.select('#g3').classed("selected", false)
+                d3.select('#g3').style('fill', "#6E9EA4")
+                d3.select("#colores").remove()
+
+            }
+            
+        });
 
         //legenda mapa
         svg.append('text')
