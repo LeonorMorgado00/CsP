@@ -636,45 +636,48 @@ function main(){
                         if(placesForConsultas[indexF]["Nome do novo local"] == selecedLocal){
                             elementF = p[indexF];
                             allElementsForPlace.push(elementF)
+                            console.log(elementF)
                             
                             nomeDoLocal = placesForConsultas[indexF]["Nome do novo local"]
                             numeroDeZonas = placesForConsultas[indexF]["Número de zonas existentes no local"]
                             if(numeroDeZonas == 1){
-                                nomeDaZona = placesForConsultas[indexF]["(1) Nome da zona"]   
-                                justificacoesDaZona = placesForConsultas[indexF]["(1) Justificações a considerar (separar com vírgula)"]
+                                nomeDaZona = placesForConsultas[indexF]["Nome da zona 1"]   
+                                justificacoesDaZona = placesForConsultas[indexF]["Justificações a considerar para a zona 1 (separar com vírgula se tiver mais que uma)"]
                             } else if(numeroDeZonas == 2){
-                                nomeDaZona = placesForConsultas[indexF]["(2) Nome da zona"]   
-                                justificacoesDaZona = placesForConsultas[indexF]["(2) Justificações a considerar (separar com vírgula)"]
-                                nomeDaZona2 = placesForConsultas[indexF]["(2) Nome da zona 2"]   
-                                justificacoesDaZona2 = placesForConsultas[indexF]["(2) Justificações a considerar 2 (separar com vírgula)"]
+                                nomeDaZona = placesForConsultas[indexF]["Nome da zona  1"]   
+                                justificacoesDaZona = placesForConsultas[indexF]["Justificações a considerar para a zona  1 (separar com vírgula se tiver mais que uma)"]
+                                nomeDaZona2 = placesForConsultas[indexF]["Nome da zona  2"]   
+                                justificacoesDaZona2 = placesForConsultas[indexF]["Justificações a considerar para a zona  2 (separar com vírgula se tiver mais que uma)"]
                             } else if(numeroDeZonas == 3){
-                                nomeDaZona = placesForConsultas[indexF]["(3) Nome da zona"]   
-                                justificacoesDaZona = placesForConsultas[indexF]["(3) Justificações a considerar (separar com vírgula)"]
-                                nomeDaZona2 = placesForConsultas[indexF]["(3) Nome da zona 2"]   
-                                justificacoesDaZona2 = placesForConsultas[indexF]["(3) Justificações a considerar 2 (separar com vírgula)"]
-                                nomeDaZona3 = placesForConsultas[indexF]["(3) Nome da zona 3"]   
-                                justificacoesDaZona3 = placesForConsultas[indexF]["(3) Justificações a considerar 3 (separar com vírgula)"]  
+                                nomeDaZona = placesForConsultas[indexF]["Nome da zona   1"]   
+                                justificacoesDaZona = placesForConsultas[indexF]["Justificações a considerar para a zona   1 (separar com vírgula se tiver mais que uma)"]
+                                nomeDaZona2 = placesForConsultas[indexF]["Nome da zona   2"]   
+                                justificacoesDaZona2 = placesForConsultas[indexF]["Justificações a considerar para a zona   2 (separar com vírgula se tiver mais que uma)"]
+                                nomeDaZona3 = placesForConsultas[indexF]["Nome da zona   3"]   
+                                justificacoesDaZona3 = placesForConsultas[indexF]["Justificações a considerar para a zona   3 (separar com vírgula se tiver mais que uma)"]  
                             } else if(numeroDeZonas == 4){
-                                nomeDaZona = placesForConsultas[indexF]["(4) Nome da zona"]   
-                                justificacoesDaZona = placesForConsultas[indexF]["(4) Justificações a considerar (separar com vírgula)"]
-                                nomeDaZona2 = placesForConsultas[indexF]["(4) Nome da zona 2"]   
-                                justificacoesDaZona2 = placesForConsultas[indexF]["(4) Justificações a considerar 2 (separar com vírgula)"]
-                                nomeDaZona3 = placesForConsultas[indexF]["(4) Nome da zona 3"]   
-                                justificacoesDaZona3 = placesForConsultas[indexF]["(4) Justificações a considerar 3 (separar com vírgula)"]  
-                                nomeDaZona4 = placesForConsultas[indexF]["(4) Nome da zona 4"]   
-                                justificacoesDaZona4 = placesForConsultas[indexF]["(4) Justificações a considerar 4 (separar com vírgula)"]  
+                                nomeDaZona = placesForConsultas[indexF]["Nome da zona    1"]   
+                                justificacoesDaZona = placesForConsultas[indexF]["Justificações a considerar para a zona    1 (separar com vírgula se tiver mais que uma)"]
+                                nomeDaZona2 = placesForConsultas[indexF]["Nome da zona    2"]   
+                                justificacoesDaZona2 = placesForConsultas[indexF]["Justificações a considerar para a zona    2 (separar com vírgula se tiver mais que uma)"]
+                                nomeDaZona3 = placesForConsultas[indexF]["Nome da zona    3"]   
+                                justificacoesDaZona3 = placesForConsultas[indexF]["Justificações a considerar para a zona    3 (separar com vírgula se tiver mais que uma)"]  
+                                nomeDaZona4 = placesForConsultas[indexF]["Nome da zona    4"]   
+                                justificacoesDaZona4 = placesForConsultas[indexF]["Justificações a considerar para a zona    4 (separar com vírgula se tiver mais que uma)"]  
                             } else if(numeroDeZonas == 5){
-                                nomeDaZona = placesForConsultas[indexF]["(5) Nome da zona"]   
-                                justificacoesDaZona = placesForConsultas[indexF]["(5) Justificações a considerar (separar com vírgula)"]
-                                nomeDaZona2 = placesForConsultas[indexF]["(5) Nome da zona 2"]   
-                                justificacoesDaZona2 = placesForConsultas[indexF]["(5) Justificações a considerar 2 (separar com vírgula)"]
-                                nomeDaZona3 = placesForConsultas[indexF]["(5) Nome da zona 3"]   
-                                justificacoesDaZona3 = placesForConsultas[indexF]["(5) Justificações a considerar 3 (separar com vírgula)"] 
-                                nomeDaZona4 = placesForConsultas[indexF]["(5) Nome da zona 4"]   
-                                justificacoesDaZona4 = placesForConsultas[indexF]["(5) Justificações a considerar 4 (separar com vírgula)"]   
-                                nomeDaZona5 = placesForConsultas[indexF]["(5) Nome da zona 5"]   
-                                justificacoesDaZona5 = placesForConsultas[indexF]["(5) Justificações a considerar 5 (separar com vírgula)"]
+                                nomeDaZona = placesForConsultas[indexF]["Nome da zona     1"]   
+                                justificacoesDaZona = placesForConsultas[indexF]["Justificações a considerar para a zona     1 (separar com vírgula se tiver mais que uma)"]
+                                nomeDaZona2 = placesForConsultas[indexF]["Nome da zona     2"]   
+                                justificacoesDaZona2 = placesForConsultas[indexF]["Justificações a considerar para a zona     2 (separar com vírgula se tiver mais que uma)"]
+                                nomeDaZona3 = placesForConsultas[indexF]["Nome da zona     3"]   
+                                justificacoesDaZona3 = placesForConsultas[indexF]["Justificações a considerar para a zona     3 (separar com vírgula se tiver mais que uma)"] 
+                                nomeDaZona4 = placesForConsultas[indexF]["Nome da zona     4"]   
+                                justificacoesDaZona4 = placesForConsultas[indexF]["Justificações a considerar para a zona     4 (separar com vírgula se tiver mais que uma)"]   
+                                nomeDaZona5 = placesForConsultas[indexF]["Nome da zona     5"]   
+                                justificacoesDaZona5 = placesForConsultas[indexF]["Justificações a considerar para a zona     5 (separar com vírgula se tiver mais que uma)"]
                             } 
+
+                            console.log(justificacoesDaZona)
 
                                       
                                 
