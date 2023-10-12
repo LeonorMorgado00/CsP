@@ -636,8 +636,7 @@ function main(){
                         if(placesForConsultas[indexF]["Nome do novo local"] == selecedLocal){
                             elementF = p[indexF];
                             allElementsForPlace.push(elementF)
-                            console.log(elementF)
-                            
+
                             nomeDoLocal = placesForConsultas[indexF]["Nome do novo local"]
                             numeroDeZonas = placesForConsultas[indexF]["Número de zonas existentes no local"]
                             if(numeroDeZonas == 1){
@@ -675,15 +674,7 @@ function main(){
                                 justificacoesDaZona4 = placesForConsultas[indexF]["Justificações a considerar para a zona     4 (separar com vírgula se tiver mais que uma)"]   
                                 nomeDaZona5 = placesForConsultas[indexF]["Nome da zona     5"]   
                                 justificacoesDaZona5 = placesForConsultas[indexF]["Justificações a considerar para a zona     5 (separar com vírgula se tiver mais que uma)"]
-                            } 
-
-                            console.log(justificacoesDaZona)
-
-                                      
-                                
-                                    
-                              
-                            
+                            }     
                         }
                     }
                 }
@@ -743,10 +734,11 @@ function main(){
                 function drawUsersC(){
                     yc = 570
                     ytc = 585
+                    
                     for(let index = 0; index < indexes.length; index++){
-                        //var indexForInfo0 = indexes[index]
+                        var indexForInfo0 = indexes[index]
                         
-                        id = ids[index];
+                        id = ids[indexForInfo0];
         
                         //Seleção do user
                         svg.append('text')
@@ -770,17 +762,15 @@ function main(){
                              //get ratings of the selected person
         
                             var indexToGet
-                           
                             for(let index2 = 0; index2 < usedIds.length; index2++){
-                                if(ids[index] == usedIds[index2]){
-                                    // ANTES ETSAV ASSIM: indexToGet = index2
+                                if(ids[indexes[index]] == usedIds[index2]){
                                     indexToGet = index2
                                 }
                             }
         
                             if (!d3.select(this).classed("selected") ){
                                 
-                                idToConsider = ids[index]
+                                idToConsider = ids[indexes[index]]
 
                                 ratingAntes = ratingsAntes[indexToGet]
                                 ratingApos = ratingsApos[indexToGet]
@@ -828,6 +818,8 @@ function main(){
                                 //get all the rating given
                                 var allRatingsAntesByUser = []
                                 var allRatingsAposByUser = []
+
+                                //ERRO ESTÁ AQUI
                         
                                 for(let index4 = 0; index4 < idsNotOrganized.length; index4++){
                                     if(indexesForRatings.includes(index4)){
@@ -1752,6 +1744,7 @@ function main(){
         svg.select("#legendaCircle2").remove()
         svg.select("#circleAntes").remove()
         svg.select("#circleDepois").remove()
+
         for(let index1 = 0; index1 < indexes.length; index1++){
             var teste = 'rectuserantes' + ids[indexes[index1]]
             var testee = d3.select("#" + teste)
@@ -2246,12 +2239,10 @@ function main(){
         
         var countsFuture
 
-        //verFuturoSalas(countsFuture, countFutureZona1, countFutureZona2, countFutureZona3, countFutureZona4, countFutureZona5, corFutureZona1, corFutureZona2, corFutureZona3, corFutureZona4, corFutureZona5);
         function verFuturoSalas(){
             countsFuture = []
             countsFuture = [{ id: 'e', count: countFutureZona1 }, { id: 'o', count: countFutureZona2 }, { id: 'v', count: countFutureZona3 }, { id: 'g', count: countFutureZona4 }, { id: 'p', count: countFutureZona5 }];
             countsFuture.sort(sortBy('count'));
-
 
             getFutureInfo()
             //SE OS COUNTS FOREM IGUAIS PARA TODOS OS ELEMENTOS, METER A COR MÁXIMA EM TODOS
@@ -2476,7 +2467,7 @@ function main(){
                         }
                     }
                 }
-            }     
+            }  
         }
         verFuturoSalas()
 
@@ -2868,10 +2859,8 @@ function main(){
                 
         }
 
-        function getFutureInfo(){
-            
+        function getFutureInfo(){            
             //VOTES FOR FUTURE
-
             if(selecedLocal == 'MAAT'){
                 if(futures.includes('Exterior do museu')){
                     countFutureZona1 = 1;
@@ -2939,9 +2928,9 @@ function main(){
             
             for(let index = 0; index < indexes.length; index++){
 
-                //var indexForInfo = indexes[index]
+                var indexForInfo = indexes[index]
                 
-                id = ids[index];                
+                id = ids[indexForInfo];                
 
                 //Seleção do user
                 svg.append('text')
@@ -2962,9 +2951,12 @@ function main(){
                     .style('stroke', "black")
                     .classed("selected", false)
                     .on('click', function(e, d){
+                        
 
 
                     idOfClickedUser = ids[indexes[index]]
+                    
+                
 
                     if (!d3.select(this).classed("selected") ){
                         firstTime = 1
@@ -2985,11 +2977,9 @@ function main(){
                         }
 
                         var indexToGet
-
-
                         for(let index2 = 0; index2 < usedIds.length; index2++){
-                            if(ids[index] == usedIds[index2]){
-                                indexToGet = index
+                            if(ids[indexes[index]] == usedIds[index2]){
+                                indexToGet = index2
                             }
                         }
                         
@@ -3035,9 +3025,7 @@ function main(){
                         //ROOMS VISITED
                         //AND GET THE JUSTIFICATIONS
 
-
                         if(visitsZona1[indexToGet] == 'Sim'){
-
                             visitUserZona1 = 1;
                             justificationUserZona1 = justificationsZona1[indexToGet]
                         } else{
@@ -3072,7 +3060,6 @@ function main(){
                             visitUserZona5 = 0;
                             justificationUserZona5 = "Espaço não visitado"
                         } 
-
 
                         //GET COLORS
 
@@ -3386,7 +3373,7 @@ function main(){
                         .attr('d',mapaGaleriaPrincipal)
                         .attr('x', 1030)
                         .attr('y', 150)
-                        .attr("fill", corZona5)
+                        .attr("fill", corZona4)
                         .on('mouseover', function (d, i) {
                             a = parseInt(d3.select(this).attr('x')) + 5
                             b = parseInt(d3.select(this).attr('y')) + 60
@@ -3410,7 +3397,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .style('fill', corZona5)
+                            .style('fill', corZona4)
                         })
     
                     innerSVG.append("path")
@@ -3484,7 +3471,7 @@ function main(){
                         .attr('d',mapaProjectRoom)
                         .attr('x', 1030)
                         .attr('y', 150)
-                        .attr("fill", corZona4)
+                        .attr("fill", corZona5)
                         .on('mouseover', function (d, i) {
                             a = parseInt(d3.select(this).attr('x')) + 5
                             b = parseInt(d3.select(this).attr('y')) + 60
@@ -3508,7 +3495,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .style('fill', corZona4)
+                            .style('fill', corZona5)
                         })
     
                     innerSVG.raise()
@@ -3699,8 +3686,8 @@ function main(){
 
             //Apagar os users que estavam no ecra: ewb
             for(let index = 0; index < indexes.length; index++){
-                //var indexForInfo0 = indexes[index]
-                id = ids[index];
+                var indexForInfo0 = indexes[index]
+                id = ids[indexForInfo0];
 
                 d3.select('#user' + id).remove()
                 d3.select('#labelUser' + id).remove()
@@ -3709,8 +3696,8 @@ function main(){
 
             //Apagar os users que estavam no ecra: ewb
             for(let index = 0; index < indexes.length; index++){
-                //var indexForInfo0 = indexes[index]
-                id = ids[index];
+                var indexForInfo0 = indexes[index]
+                id = ids[indexForInfo0];
                 d3.select('#userc' + id).remove()
                 d3.select('#labelUserc' + id).remove()
                 
@@ -3816,7 +3803,7 @@ function main(){
                     .attr('d',mapaGaleriaPrincipal)
                     .attr('x', 1030)
                     .attr('y', 150)
-                    .attr("fill", corZona5)
+                    .attr("fill", corZona4)
                     .on('mouseover', function (d, i) {
                         a = parseInt(d3.select(this).attr('x')) + 5
                         b = parseInt(d3.select(this).attr('y')) + 60
@@ -3840,7 +3827,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .style('fill', corZona5)
+                        .style('fill', corZona4)
                     })
 
                 innerSVG.append("path")
@@ -3912,7 +3899,7 @@ function main(){
                     .attr('d',mapaProjectRoom)
                     .attr('x', 1030)
                     .attr('y', 150)
-                    .attr("fill", corZona4)
+                    .attr("fill", corZona5)
                     .on('mouseover', function (d, i) {
                         a = parseInt(d3.select(this).attr('x')) + 5
                         b = parseInt(d3.select(this).attr('y')) + 60
@@ -3936,7 +3923,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .style('fill', corZona4)
+                        .style('fill', corZona5)
                     })
 
                 innerSVG.raise()
@@ -4022,20 +4009,20 @@ function main(){
                         .attr('d',mapaGaleriaPrincipal)
                         .attr('x', 1030)
                         .attr('y', 150)
-                        .attr("fill", corUserZona5)
+                        .attr("fill", corUserZona4)
                         .on('mouseover', function (d, i) {
                             a = parseInt(d3.select(this).attr('x')) + 5
                             b = parseInt(d3.select(this).attr('y')) + 15
                             c = parseInt(d3.select(this).attr('y')) + 60
                 
-                            if(justificationUserZona5 != ""){
+                            if(justificationUserZona4 != ""){
                                 d3.select('#tooltip')
                                 .transition().duration(200)
                                 .style('opacity', 1)
                                 .style("left", a + "px")     
                                 .style("top", c + "px")
                                 .style("width", 250 + "px")
-                                .text("Galeria Principal\n" + "Justificação: " + justificationUserZona5)
+                                .text("Galeria Principal\n" + "Justificação: " + justificationUserZona4)
                                 .style("color", "#6E9EA4")
                                 .style("font-family", "Roboto")
                                 .style("font-size", '14px')
@@ -4052,7 +4039,7 @@ function main(){
                                 .style("left", a + "px")     
                                 .style("top", c + "px")
                                 .style("width", 230 + "px")
-                                .text("Galeria Principal: " + justificationUserZona5)
+                                .text("Galeria Principal: " + justificationUserZona4)
                                 .style("color", "#6E9EA4")
                                 .style("font-family", "Roboto")
                                 .style("font-size", '14px')
@@ -4065,14 +4052,14 @@ function main(){
                                 
                         })
                         .on('mouseout', function (d, i) {
-                            if(justificationUserZona5 != ""){
+                            if(justificationUserZona4 != ""){
                                 d3.select('#tooltip')
                                 .style('opacity', 0)
                                 d3.select(this)
                                 .transition()
                                 .duration('50')
                                 .attr('opacity', '1')
-                                .style('fill', corUserZona5)
+                                .style('fill', corUserZona4)
                             }
                             else{
                                 d3.select('#tooltip')
@@ -4224,19 +4211,19 @@ function main(){
                         .attr('d',mapaProjectRoom)
                         .attr('x', 1030)
                         .attr('y', 150)
-                        .attr("fill", corUserZona4)
+                        .attr("fill", corUserZona5)
                         .on('mouseover', function (d, i) {
                             a = parseInt(d3.select(this).attr('x')) + 5
                             b = parseInt(d3.select(this).attr('y')) + 15
                             c = parseInt(d3.select(this).attr('y')) + 60
-                            if(justificationUserZona4 != ""){
+                            if(justificationUserZona5 != ""){
                                 d3.select('#tooltip')
                                 .transition().duration(200)
                                 .style('opacity', 1)
                                 .style("left", a + "px")     
                                 .style("top", c + "px")
                                 .style("width", 250 + "px")
-                                .text("Project Room\n" + "Justificação: " + justificationUserZona4)
+                                .text("Project Room\n" + "Justificação: " + justificationUserZona5)
                                 .style("color", "#6E9EA4")
                                 .style("font-family", "Roboto")
                                 .style("font-size", '14px')
@@ -4253,7 +4240,7 @@ function main(){
                                 .style("left", a + "px")     
                                 .style("top", c + "px")
                                 .style("width", 200 + "px")
-                                .text("Project Room: " + justificationUserZona4)
+                                .text("Project Room: " + justificationUserZona5)
                                 .style("color", "#6E9EA4")
                                 .style("font-family", "Roboto")
                                 .style("font-size", '14px')
@@ -4267,14 +4254,14 @@ function main(){
                                 
                         })
                         .on('mouseout', function (d, i) {
-                            if(justificationUserZona4 != ""){
+                            if(justificationUserZona5 != ""){
                                 d3.select('#tooltip')
                                 .style('opacity', 0)
                                 d3.select(this)
                                 .transition()
                                 .duration('50')
                                 .attr('opacity', '1')
-                                .style('fill', corUserZona4)
+                                .style('fill', corUserZona5)
                             }
                             else{
                                 d3.select('#tooltip')
@@ -4333,8 +4320,8 @@ function main(){
                 //DESENHAR MAPA
                 //EXTERIOR
                 drawLocation()
-                verFuturoSalas()
-                verNumeroSalas()
+                //verFuturoSalas()
+                //verNumeroSalas()
 
                 svg.append('rect')
                     .attr("id", 'exterior')
@@ -4396,7 +4383,7 @@ function main(){
                     .attr('d',mapaGaleriaPrincipal)
                     .attr('x', 1030)
                     .attr('y', 150)
-                    .attr("fill", corVisitaZona5)
+                    .attr("fill", corVisitaZona4)
                     .on('mouseover', function (d, i) {
                         a = parseInt(d3.select(this).attr('x')) + 5
                         b = parseInt(d3.select(this).attr('y')) + 60
@@ -4420,7 +4407,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .style('fill', corVisitaZona5)
+                        .style('fill', corVisitaZona4)
                     })
 
 
@@ -4493,7 +4480,7 @@ function main(){
                     .attr('d',mapaProjectRoom)
                     .attr('x', 1030)
                     .attr('y', 150)
-                    .attr("fill", corVisitaZona4)
+                    .attr("fill", corVisitaZona5)
                     .on('mouseover', function (d, i) {
                         a = parseInt(d3.select(this).attr('x')) + 5
                         b = parseInt(d3.select(this).attr('y')) + 60
@@ -4517,7 +4504,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .style('fill', corVisitaZona4)
+                        .style('fill', corVisitaZona5)
                     })
 
                 innerSVG.raise()
@@ -4548,6 +4535,7 @@ function main(){
 
 
                 if(client.classed("selected")){
+                    
                     //DESENHAR MAPA
                     //EXTERIOR
                     svg.append('rect')
@@ -4590,7 +4578,7 @@ function main(){
                         .attr('d',mapaGaleriaPrincipal)
                         .attr('x', 1030)
                         .attr('y', 150)
-                        .attr("fill", corUserVisitaZona5)
+                        .attr("fill", corUserVisitaZona4)
                         .on('mouseover', function (d, i) {
                             a = parseInt(d3.select(this).attr('x')) + 5
                             b = parseInt(d3.select(this).attr('y')) + 60
@@ -4614,7 +4602,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .style('fill', corUserVisitaZona5)
+                            .style('fill', corUserVisitaZona4)
                         })
 
                     innerSVG.append("path")
@@ -4686,7 +4674,7 @@ function main(){
                         .attr('d',mapaProjectRoom)
                         .attr('x', 1030)
                         .attr('y', 150)
-                        .attr("fill", corUserVisitaZona4)
+                        .attr("fill", corUserVisitaZona5)
                         .on('mouseover', function (d, i) {
                             a = parseInt(d3.select(this).attr('x')) + 5
                             b = parseInt(d3.select(this).attr('y')) + 60
@@ -4710,7 +4698,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .style('fill', corUserFutureZona4)
+                            .style('fill', corUserVisitaZona5)
                         })
 
                     innerSVG.raise()
@@ -4810,13 +4798,12 @@ function main(){
                     .attr("fill", "white")
                     .raise()
 
-
                 innerSVG.append("path")
                     .attr("id", 'mapaGaleriaPrincipal')
                     .attr('d',mapaGaleriaPrincipal)
                     .attr('x', 1030)
                     .attr('y', 150)
-                    .attr("fill", corFutureZona5)
+                    .attr("fill", corFutureZona4)
                     .on('mouseover', function (d, i) {
                         a = parseInt(d3.select(this).attr('x')) + 5
                         b = parseInt(d3.select(this).attr('y')) + 60
@@ -4840,7 +4827,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .style('fill', corFutureZona5)
+                        .style('fill', corFutureZona4)
                     })
                 innerSVG.append("path")
                     .attr("id", 'mapaVideoRoom')
@@ -4911,7 +4898,7 @@ function main(){
                     .attr('d',mapaProjectRoom)
                     .attr('x', 1030)
                     .attr('y', 150)
-                    .attr("fill", corFutureZona4)
+                    .attr("fill", corFutureZona5)
                     .on('mouseover', function (d, i) {
                         a = parseInt(d3.select(this).attr('x')) + 5
                         b = parseInt(d3.select(this).attr('y')) + 60
@@ -4935,7 +4922,7 @@ function main(){
                         d3.select(this)
                         .transition()
                         .duration('50')
-                        .style('fill', corFutureZona4)
+                        .style('fill', corFutureZona5)
                     })
 
                 innerSVG.raise()
@@ -5010,7 +4997,7 @@ function main(){
                         .attr('d',mapaGaleriaPrincipal)
                         .attr('x', 1030)
                         .attr('y', 150)
-                        .attr("fill", corUserFutureZona5)
+                        .attr("fill", corUserFutureZona4)
                         .on('mouseover', function (d, i) {
                             a = parseInt(d3.select(this).attr('x')) + 5
                             b = parseInt(d3.select(this).attr('y')) + 60
@@ -5034,7 +5021,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .style('fill', corUserFutureZona5)
+                            .style('fill', corUserFutureZona4)
                         })
 
                     //VIDEO ROOM
@@ -5109,7 +5096,7 @@ function main(){
                         .attr('d',mapaProjectRoom)
                         .attr('x', 1030)
                         .attr('y', 150)
-                        .attr("fill", corUserFutureZona4)
+                        .attr("fill", corUserFutureZona5)
                         .on('mouseover', function (d, i) {
                             a = parseInt(d3.select(this).attr('x')) + 5
                             b = parseInt(d3.select(this).attr('y')) + 60
@@ -5133,7 +5120,7 @@ function main(){
                             d3.select(this)
                             .transition()
                             .duration('50')
-                            .style('fill', corUserFutureZona4)
+                            .style('fill', corUserFutureZona5)
                         })
 
                     innerSVG.raise()
